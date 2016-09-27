@@ -1,0 +1,53 @@
+<html>
+
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+		<title>Contact List App</title>
+	</head>
+	<body ng-app="firstApp">
+		<div class="container" ng-controller="AppCtrl">
+			<h1>Customers</h1>
+			
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Number</th>
+						<th>Action</th>
+					</tr>
+					
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="text" class="form-control" ng-model="cust.customer_id"/></td>
+						<td><input type="text" class="form-control" ng-model="cust.customer_fisrt_name"/></td>
+						<td><input type="text" class="form-control" ng-model="cust.customer_email"/></td>
+						<td><input type="text" class="form-control" ng-model="cust.customer_mobile"/></td>
+						<td><button class="form-control" ng-click="addContact()" />Add</button></td>
+						<td><button class="btn btn-primary" ng-click="update()">Update</button> <button class="btn btn-info" ng-click="clear()">Clear</button></td>
+						
+					</tr>
+					<tr ng-repeat="customer in customersList">
+						<td>{{customer.customer_id}}</td>
+						<td>{{customer.customer_fisrt_name}}</td>
+						<td>{{customer.customer_email}}</td>
+						<td>{{customer.customer_mobile}}</td>
+						<td><button class="btn btn-danger" ng-click="remove(customer.customer_id)">Remove</button></td>
+						<td><button class="btn btn-danger" ng-click="edit(customer.customer_id)">Edit</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="app.js"></script>
+		<script src="controllers/controller.js"></script>
+	</body>
+</html>
